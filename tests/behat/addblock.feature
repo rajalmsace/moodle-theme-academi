@@ -1,4 +1,4 @@
-@javascript @theme_academi
+@theme @theme_academi
 Feature: Add a block using boost theme
   In order to decide the blocks to display in the Add a block list for a theme
   As an administrator

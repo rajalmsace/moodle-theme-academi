@@ -8,7 +8,7 @@ jobs:
 
     services:
       postgres:
-        image: postgres:13
+        image: postgres:14
         env:
           POSTGRES_USER: 'postgres'
           POSTGRES_HOST_AUTH_METHOD: 'trust'
@@ -28,17 +28,8 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - php: '8.2'
-            moodle-branch: 'MOODLE_403_STABLE'
-            database: 'pgsql'
-          - php: '8.0'
-            moodle-branch: 'MOODLE_402_STABLE'
-            database: 'mariadb'
-          - php: '8.0'
-            moodle-branch: 'MOODLE_401_STABLE'
-            database: 'pgsql'
-          - php: '7.4'
-            moodle-branch: 'MOODLE_400_STABLE'
+          - php: '8.3'
+            moodle-branch: 'MOODLE_404_STABLE'
             database: 'mariadb'
 
     steps:
@@ -48,7 +39,7 @@ jobs:
           path: plugin
 
       - name: Setup PHP ${{ matrix.php }}
-        uses: shivammathur/setup-php@v2
+        uses: shivammathur/setup-php@v4
         with:
           php-version: ${{ matrix.php }}
           ini-values: max_input_vars=6000
